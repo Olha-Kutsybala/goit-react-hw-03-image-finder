@@ -3,6 +3,7 @@ import { Notify } from 'notiflix';
 import fetchImages from 'api';
 import Searchbar from './searchbar';
 import ImageGallery from './imageGallery';
+import css from './App.module.css';
 
 let page = 1;
 
@@ -45,7 +46,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={css.App}>
         <Searchbar handleSearch={this.handleSearch} />
         <ImageGallery query={this.state.query} images={this.state.images} />
       </div>
