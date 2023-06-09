@@ -8,7 +8,7 @@ let page = 1;
 
 class App extends Component {
   state = {
-    isShowModal: false,
+    showModal: false,
     query: '',
     images: [],
     largeImageURL: '',

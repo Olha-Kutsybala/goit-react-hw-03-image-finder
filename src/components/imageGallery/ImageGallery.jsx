@@ -5,20 +5,7 @@ import { Component } from 'react';
 // import { Notify } from 'notiflix';
 
 class ImageGallery extends Component {
-  // state = {
-  //   images: [],
-  // };
-
-  // componentDidUpdate(prevProps, prevState) {
-  // const { query, page } = this.state;
-  // if (prevProps.query !== this.props.query) {
-  //   console.log(this.props.query);
-  // fetchImages(this.props.query);
-
-  // }
-
   render() {
-    // const { images } = this.props.images;
     return (
       <ul className="gallery">
         {this.props.images.map(({ id, webformatURL, largeImageURL, tags }) => (
@@ -27,7 +14,6 @@ class ImageGallery extends Component {
             webformatURL={webformatURL}
             largeImageURL={largeImageURL}
             tags={tags}
-            // onOpenModal={onClick}
           />
         ))}
       </ul>
