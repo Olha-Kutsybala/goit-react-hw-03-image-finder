@@ -21,7 +21,7 @@ class ImageGalleryItem extends Component {
           className="image"
           onClick={this.onOpenModal}
         />
-        if(showModal ){<Modal />}
+        {this.state.showModal && <Modal onClose={this.onOpenModal} />}
       </li>
     );
   }
