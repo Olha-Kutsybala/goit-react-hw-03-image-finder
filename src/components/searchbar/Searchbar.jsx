@@ -7,9 +7,10 @@ class Searchbar extends Component {
 
   handleChange = ({ target: { value } }) => this.setState({ value });
 
-  handleSubmit = evt => {
+  handleSubmit = async evt => {
     evt.preventDefault();
-    this.props.handleSearch(this.state.value);
+    const { value } = this.state;
+    this.props.handleSearch(value);
   };
 
   render() {
@@ -24,8 +25,8 @@ class Searchbar extends Component {
           <input
             className="input"
             type="text"
-            autocomplete="off"
-            autofocus
+            autoComplete="off"
+            autoFocus
             placeholder="Search images and photos"
             value={value}
             onChange={this.handleChange}
