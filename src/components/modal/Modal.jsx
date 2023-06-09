@@ -26,6 +26,7 @@ class Modal extends Component {
 
   render() {
     const { largeImageURL } = this.props;
+    
     return createPortal(
       <div onClick={this.handleOverlay} className={css.overlay}>
         <div className={css.modal}>

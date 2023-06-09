@@ -19,7 +19,6 @@ class ImageGalleryItem extends Component {
           src={webformatURL}
           alt={tags}
           data-source={largeImageURL}
-          className="image"
           onClick={this.onOpenModal}
           className={css.imageGalleryItem_image}
         />
