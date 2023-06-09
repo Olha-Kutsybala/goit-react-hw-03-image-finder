@@ -1,13 +1,13 @@
 import ImageGalleryItem from 'components/imageGalleryItem';
 
-import fetchImages from 'api';
+// import fetchImages from 'api';
 import { Component } from 'react';
-import { Notify } from 'notiflix';
+// import { Notify } from 'notiflix';
 
 class ImageGallery extends Component {
-  state = {
-    images: [],
-  };
+  // state = {
+  //   images: [],
+  // };
 
   // componentDidUpdate(prevProps, prevState) {
   // const { query, page } = this.state;
@@ -18,10 +18,10 @@ class ImageGallery extends Component {
   // }
 
   render() {
-    const { images } = this.state;
+    // const { images } = this.props.images;
     return (
       <ul className="gallery">
-        {images.map(({ id, webformatURL, largeImageURL, tags }) => (
+        {this.props.images.map(({ id, webformatURL, largeImageURL, tags }) => (
           <ImageGalleryItem
             key={id}
             webformatURL={webformatURL}

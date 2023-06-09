@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div>
         <Searchbar handleSearch={this.handleSearch} />
-        <ImageGallery query={this.state.query} />
+        <ImageGallery query={this.state.query} images={this.state.images} />
       </div>
     );
   }
