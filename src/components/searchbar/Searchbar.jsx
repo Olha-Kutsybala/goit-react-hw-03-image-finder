@@ -12,10 +12,12 @@ class Searchbar extends Component {
     evt.preventDefault();
     const { value } = this.state;
     this.props.handleSearch(value);
+
+    this.setState({ value: '' });
   };
 
   render() {
-    const { value } = this.state.value;
+    const { value } = this.state;
     return (
       <header className={css.searchbar}>
         <form

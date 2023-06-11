@@ -1,9 +1,7 @@
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/imageGalleryItem';
 import css from './ImageGallery.module.css';
-
-// import fetchImages from 'api';
-import { Component } from 'react';
-// import { Notify } from 'notiflix';
 
 class ImageGallery extends Component {
   render() {
@@ -21,5 +19,10 @@ class ImageGallery extends Component {
     );
   }
 }
+
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default ImageGallery;

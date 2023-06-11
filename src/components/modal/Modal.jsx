@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 const rootModal = document.querySelector('#root_modal');
@@ -25,17 +26,22 @@ class Modal extends Component {
   };
 
   render() {
-    const { largeImageURL } = this.props;
-    
+    const { largeImageURL, alt } = this.props;
+
     return createPortal(
       <div onClick={this.handleOverlay} className={css.overlay}>
         <div className={css.modal}>
-          <img src={largeImageURL} alt="show big foto" />
+          <img src={largeImageURL} alt={alt} />
         </div>
       </div>,
       rootModal
     );
   }
 }
+
+Modal.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
 
 export default Modal;
