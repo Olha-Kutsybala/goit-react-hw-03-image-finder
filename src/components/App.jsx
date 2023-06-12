@@ -83,12 +83,13 @@ class App extends Component {
   // };
 
   render() {
+    const { status, images } = this.state;
     return (
       <div className={css.App}>
         <Searchbar handleSearch={this.handleSearch} />
-        <ImageGallery images={this.state.images} />
-        {this.state.status === 'pending' && <Loader />}
-        {this.state.status === 'resolved' && this.state.images.length >= 12 && (
+        <ImageGallery images={images} />
+        {status === 'pending' && <Loader />}
+        {status === 'resolved' && this.state.images.length >= 12 && (
           <Button onClick={this.onNextPage} />
         )}
       </div>
