@@ -12,14 +12,14 @@ import Loader from './loader';
 
 class App extends Component {
   state = {
-    showModal: false,
+    // showModal: false,
     query: '',
     images: [],
-    largeImageURL: '',
+    // largeImageURL: '',
     page: 1,
     status: 'idle',
     totalHits: 0,
-    showButton: false,
+    // showButton: false,
   };
 
   componentDidUpdate = async (_, prevState) => {
@@ -83,15 +83,14 @@ class App extends Component {
   // };
 
   render() {
-    const { status, images } = this.state;
+    const { status, images, totalHits } = this.state;
+    const showButton = status === 'resolved' && images.length !== totalHits;
     return (
       <div className={css.App}>
         <Searchbar handleSearch={this.handleSearch} />
-        <ImageGallery images={images} />
+        {images.length > 0 && <ImageGallery images={images} />}
         {status === 'pending' && <Loader />}
-        {status === 'resolved' && this.state.images.length >= 12 && (
-          <Button onClick={this.onNextPage} />
-        )}
+        {showButton && <Button onClick={this.onNextPage} />}
       </div>
     );
   }
