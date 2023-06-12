@@ -8,18 +8,13 @@ import css from './App.module.css';
 import Button from './button';
 import Loader from './loader';
 
-// let page = 1;
-
 class App extends Component {
   state = {
-    // showModal: false,
     query: '',
     images: [],
-    // largeImageURL: '',
     page: 1,
     status: 'idle',
     totalHits: 0,
-    // showButton: false,
   };
 
   componentDidUpdate = async (_, prevState) => {
@@ -46,41 +41,22 @@ class App extends Component {
     try {
       this.setState({ status: 'pending' });
       const { totalHits, hits } = await fetchImages(query, page);
+
       if (!totalHits) {
         this.setState({ status: 'idle' });
         Notify.failure('Sorry, there are no such images. Please try again.');
         return;
       }
+
       this.setState(prevState => ({
         images: [...prevState.images, ...hits],
         status: 'resolved',
         totalHits,
       }));
-      // this.setState({
-      //   images: hits,
-      //   query,
-      //   totalHits: totalHits,
-      //   status: 'resolved',
-      //   showButton: true,
-      // });
     } catch (error) {
       this.setState({ status: 'rejected' });
     }
   };
-
-  // onNextPage = async () => {
-  //   this.setState({ status: 'pending' });
-  //   // page += 1;
-  //   try {
-  //     const { hits } = await fetchImages(this.state.query, page);
-  //     this.setState(prevState => ({
-  //       images: [...prevState.images, ...hits],
-  //       status: 'resolved',
-  //     }));
-  //   } catch (error) {
-  //     this.setState({ status: 'rejected' });
-  //   }
-  // };
 
   render() {
     const { status, images, totalHits } = this.state;
@@ -96,8 +72,4 @@ class App extends Component {
   }
 }
 
-// App.propTypes = {
-//   query: PropTypes.string.isRequired,
-//   images: PropTypes.array.isRequired,
-// };
 export default App;
