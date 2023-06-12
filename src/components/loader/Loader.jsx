@@ -10,8 +10,8 @@ const Loader = () => {
         radius="9"
         color="grey"
         ariaLabel="loading"
-        wrapperStyle
-        wrapperClass
+        // wrapperStyle=
+        // wrapperClass
       />
     </div>
   );

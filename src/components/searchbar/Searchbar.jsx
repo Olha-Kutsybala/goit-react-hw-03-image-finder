@@ -11,7 +11,7 @@ class Searchbar extends Component {
   handleSubmit = async evt => {
     evt.preventDefault();
     const { value } = this.state;
-    this.props.handleSearch(value);
+    this.props.handleSearch(value.trim());
 
     this.setState({ value: '' });
   };

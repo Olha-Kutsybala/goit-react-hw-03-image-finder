@@ -40,7 +40,7 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
 };
 
