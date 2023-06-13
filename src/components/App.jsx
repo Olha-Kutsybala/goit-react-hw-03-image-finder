@@ -48,8 +48,17 @@ class App extends Component {
         return;
       }
 
+      const normalizedImages = hits.map(
+        ({ id, tags, webformatURL, largeImageURL }) => ({
+          id,
+          tags,
+          webformatURL,
+          largeImageURL,
+        })
+      );
+
       this.setState(prevState => ({
-        images: [...prevState.images, ...hits],
+        images: [...prevState.images, ...normalizedImages],
         status: 'resolved',
         totalHits,
       }));
